@@ -62,4 +62,64 @@ const sortedCars = cars.sort((a, b) => a.year - b.year);
 
 console.log(sortedCars);
 
+// 5.Task: Find and Modify
 
+// -Write a function that searches an array of objects
+// for a specific person by name.
+// If found, modify their age property.
+// Print the updated array.
+
+const persons = [
+  { name: "Rahim", age: 25 },
+  { name: "Karim", age: 30 },
+  { name: "Hasan", age: 28 },
+];
+
+const updateAge = (arr, name, newAge) => {
+  return arr.map((person) =>
+    person.name === name ? { ...person, age: newAge } : person
+  );
+};
+
+const updatedPersons = updateAge(persons, "Karim", 35);
+console.log(updatedPersons);
+
+// 6.Task: Array Reduction
+
+// -Create an array of numbers. Write a function that uses the reduce
+// method to calculate the sum of all even numbers in the array.
+
+const numbers = [1, 2, 3, 4, 5, 6, 8];
+
+const sumOfEven = numbers.reduce((sum, num) => {
+  if (num % 2 === 0) {
+    return sum + num;
+  }
+  return sum;
+}, 0);
+
+console.log(sumOfEven);
+
+// 7. Task: Leap Year Checker
+
+// -Write a function that determines whether a given year is a leap year.
+
+// Example: Happy New Year
+
+function isLeapYear(year) {
+  if (year % 400 === 0) {
+    return true;
+  }
+  if (year % 100 === 0) {
+    return false;
+  }
+  return year % 4 === 0;
+}
+
+const year = 2024;
+
+if (isLeapYear(year)) {
+  console.log("Happy New Year");
+} else {
+  console.log("Not a Leap Year");
+}
